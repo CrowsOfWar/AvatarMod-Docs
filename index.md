@@ -6,6 +6,6 @@ This site contains technical documentation for the [AV2 project](http://av2.io).
 Topics
 ------
 
-* [Classes overview](classes-overview)
-* [Adding an ability](add-ability)
-* [Adding bending](add-bending)
+* [Classes overview](classes-overview.html)
+* [Adding an ability](add-ability.html)
+* [Adding bending](add-bending.html)
