@@ -1,11 +1,6 @@
-.. AvatarMod-Docs documentation master file, created by
-   sphinx-quickstart on Sun Jun 18 00:06:24 2017.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-Welcome to AvatarMod-Docs's documentation!
+Welcome to AvatarMod's documentation!
 ==========================================
 
-[Test file]: test.md
+[Test file](test.html)
 
 ABCDEFG

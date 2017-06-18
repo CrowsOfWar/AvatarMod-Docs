@@ -11,6 +11,6 @@ blah blah blah blah blah blah blah
 Section 2
 ---------
 
-| qwertyuiop
-| asdfghjkl
-| zxcvbnm
+qwertyuiop  
+asdfghjkl  
+zxcvbnm
