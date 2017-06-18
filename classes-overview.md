@@ -13,3 +13,15 @@ The `com.crowsofwar.avatar.common.data.Bender` interface allows logic to not be 
 Since an actual instance of `Entity` is often convenient due to the sheer amount of data in that class, `Bender` objects must provide an `EntityLivingBase` which represents the entity version of the Bender. A player bender would provide an instance of `EntityPlayer`, while a firebender would provide an instance of `EntityFirender`. To maintain offline support, `Bender#getEntity()` can return null if the Bender is not currently in the world.
 
 To obtain an instance of a Bender for your entity, call the static method `Bender.create(entity)`. To obtain an instance of data, call `Bender.create(entity).getData()`, or, more conveniently, `Bender.getData(entity)`.
+
+Bending controllers
+-------------------
+
+Bending controllers represent each style of bending; mainly all of the abilities but also miscellaneous information about them (such as name). All bending controllers are derived from the `BendingController` class. The `BendingManager` class also keeps instances and IDs for each bending controller.
+
+Bending controllers are stored in `BendingData`. They are found via ID. Each ID can be retrieved through the appropriate static fields in `BendingManager`, or by calling `controller.getId()`.
+
+Abilities
+---------
+
+The `BendingAbility` class is the base for each ability. Obviously, the most important abstract method is `execute(AbilityContext)`, where the code for the ability is executed. Instances of `BendingAbility` are kept in static fields of the BendingAbility class itself. Their `BendingController` objects also keep track of them.
