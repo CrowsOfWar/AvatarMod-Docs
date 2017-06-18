@@ -6,4 +6,6 @@
 Welcome to AvatarMod-Docs's documentation!
 ==========================================
 
-:ref:`test.rst`
+[Test file]: test.md
+
+ABCDEFG
