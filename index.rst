@@ -6,7 +6,10 @@ This site contains technical documentation for the `AV2 project <http://av2.io>`
 Topics
 ------
 
-* `Code standards <code-standards.html>`_
-* `Classes overview <classes-overview.html>`_
-* `Adding an ability <add-ability.html>`_
-* `Adding bending <add-bending.html>`_
+.. toctree::
+   :maxdepth: 2
+   
+   code-standards
+   classes-overview
+   add-ability
+   add-bending
