@@ -30,3 +30,19 @@ Oftentimes a way to find a Bender by uuid/name is necessary. It also is good to 
 - In the case of mobs, uses its randomly generated UUID
 
 There is a subclass called `NoBenderInfo` which represents no bender found. This uses the null object pattern and can prevent NPEs.
+
+Methods
+-------
+
+======================== =====
+Method name              Description
+------------------------ -----
+`getName()`              Get the name of the bender - username or mob display name
+`getEntity()`            
+`getWorld()`
+`isPlayer()`
+`getInfo()`
+`getData()`
+`isCreativeMode()`
+`isFlying()`
+`consumeWaterLevel(int)`
