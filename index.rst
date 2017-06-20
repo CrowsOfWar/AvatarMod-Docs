@@ -8,8 +8,9 @@ Topics
 
 .. toctree::
    :maxdepth: 2
-   
+
    code-standards
    classes-overview
    add-ability
    add-bending
+   classes/bender
