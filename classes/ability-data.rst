@@ -7,9 +7,9 @@ Any ability data is stored in the `AbilityData` class. Each AbilityData keeps tr
 - experience to next level
 - upgrades
 
-There is one instance of AbilityData created per ability, per `BendingData <bending-data.html>`.
+There is one instance of AbilityData created per ability, per `BendingData <bending-data.html>`_.
 
-An instance of AbilityData can be retrieved by calling `BendingData#getAbilityData(BendingAbility)`.
+An instance of AbilityData can be retrieved by calling :code:`BendingData#getAbilityData(BendingAbility)`.
 
 Cookbook
 --------
