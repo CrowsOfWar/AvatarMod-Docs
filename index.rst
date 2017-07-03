@@ -14,3 +14,4 @@ Topics
    add-ability
    add-bending
    classes/bender
+   classes/ability-data
