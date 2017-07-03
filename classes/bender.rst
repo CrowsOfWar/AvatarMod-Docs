@@ -12,6 +12,8 @@ Features that the Bender interface provides includes:
   - mobs have infinite water
 - Way to identify benders (see BenderInfo)
 
+A Bender object can be obtained for an entity by calling `Bender#create(EntityLivingBase)`. Only some types of entities can be Benders. It will throw an exception if Bender is not supported for that type of entity.
+
 Implementations
 ---------------
 
@@ -31,18 +33,13 @@ Oftentimes a way to find a Bender by uuid/name is necessary. It also is good to 
 
 There is a subclass called `NoBenderInfo` which represents no bender found. This uses the null object pattern and can prevent NPEs.
 
-Methods
--------
+Cookbook
+--------
 
-======================== =====
-Method name              Description
------------------------- -----
-`getName()`              Get the name of the bender - username or mob display name
-`getEntity()`            
-`getWorld()`
-`isPlayer()`
-`getInfo()`
-`getData()`
-`isCreativeMode()`
-`isFlying()`
-`consumeWaterLevel(int)`
+Check if an entity (which implements Bender) is currently flying
+
+.. code-block:: java
+
+  EntityLivingBase entity = /* ... */;
+  Bender bender = Bender.create(entity);
+  boolean flying = bender.isFlying();

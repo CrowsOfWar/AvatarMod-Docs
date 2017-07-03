@@ -16,17 +16,18 @@ Cookbook
 
 Check if an ability is unlocked
 
-```java
-BendingData data = Bender.getData(player);
-AbilityData abilityData = data.getAbilityData(ability);
-boolean unlocked = !abilityData.isLocked();
-```
+.. code-block:: java
 
-Add 10% XP, and advance to the next level if necessary
-```java
-BendingData data = Bender.getData(player);
-AbilityData abilityData = data.getAbilityData(ability);
+   BendingData data = Bender.getData(player);
+   AbilityData abilityData = data.getAbilityData(ability);
+   boolean unlocked = !abilityData.isLocked();
 
-// Don't use addXp since the number would be adjusted for XP decay
-abilityData.addXpDirect(10);
-```
+Add 10% XP. Won't advance to the next level.
+
+.. code-block:: java
+
+   BendingData data = Bender.getData(player);
+   AbilityData abilityData = data.getAbilityData(ability);
+
+   // Don't use addXp since the number would be adjusted for XP decay
+   abilityData.addXpDirect(10);
