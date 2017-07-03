@@ -1,0 +1,12 @@
+Ability data
+============
+
+Any ability data is stored in the `AbilityData` class. Each AbilityData keeps track of a Bender's progress while learning a specific ability, for example:
+
+- ability level
+- experience to next level
+- upgrades
+
+There is one instance of AbilityData created per ability, per `BendingData <bending-data.html>`.
+
+An instance of AbilityData can be retrieved by calling `BendingData#getAbilityData(BendingAbility)`.
