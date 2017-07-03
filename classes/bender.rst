@@ -33,6 +33,8 @@ Oftentimes a way to find a Bender by uuid/name is necessary. It also is good to 
 
 There is a subclass called `NoBenderInfo` which represents no bender found. This uses the null object pattern and can prevent NPEs.
 
+BenderInfo is written to disk using the `writeToNbt` method, and can be read by calling the static method `readFromNbt`. It is written and read from network via the BenderInfo serializer found in `AvatarDataSerializers`.
+
 Cookbook
 --------
 
@@ -43,3 +45,21 @@ Check if an entity (which implements Bender) is currently flying
   EntityLivingBase entity = /* ... */;
   Bender bender = Bender.create(entity);
   boolean flying = bender.isFlying();
+
+Store information about a Bender to disk so it can be accessed later
+
+.. code-block:: java
+
+   NBTTagCompound nbt = /* ... */;
+   Bender bender = /* ... */;
+   BenderInfo info = bender.getInfo();
+   info.writeToNbt(nbt);
+
+Read the BenderInfo and create a new Bender
+
+.. code-block:: java
+
+   NBTTagCompound nbt = /* ... */;
+   World world = /* ... */;
+   BenderInfo info = BenderInfo.readFromNbt(nbt);
+   Bender bender = info.find(world); // can be null if Bender not found
