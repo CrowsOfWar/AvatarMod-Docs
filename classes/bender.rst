@@ -31,7 +31,7 @@ The :code:`Bender` interface describes a Bender which is present in the world, b
 
 - Ability to identify offline players
 - Saving information tied to offline players
-- Sending Benders across the network (the :code:`Bender` cannot be directly sent because the underlying :code:`Entity` instance is not the same on server/client)
+- Sending Benders across the network (the :code:`Bender` cannot be directly sent because there are different instances of that :code:`Entity` on server/client)
 
 BenderInfo allows you to identify Benders (either players or mobs) by using their UUID. It can be used both on the server and client.
 

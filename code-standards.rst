@@ -26,3 +26,18 @@ Keep in mind that the Minecraft codebase doesn't always follow the rules, but we
 * Acronyms should start uppercase but all subsequent letters are lowercase. eg Id or Json, but not ID or JSON.
 
 * Use `@author` annotations. Git blame can also be used, but it's nice to have something explicitly in code
+
+Documentation standards
+-----------------------
+
+- Javadoc is for reference, RTD is for explanations
+
+- Assume the reader has knowledge of Java and the Forge API before reading the article
+
+- Explain what each class is for and why it is used
+
+- For player-related classes, explain whether the player can be offline
+
+- Note server and client side availability
+
+- At the end of each class page, include a cookbook section that has a few common or useful examples of code using that class
