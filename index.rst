@@ -15,3 +15,4 @@ Topics
    add-bending
    classes/bender
    classes/ability-data
+   classes/vector
