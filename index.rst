@@ -16,3 +16,4 @@ Topics
    classes/bender
    classes/ability-data
    classes/vector
+   classes/account-uuids
