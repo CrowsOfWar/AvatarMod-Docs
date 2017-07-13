@@ -6,30 +6,40 @@ This document shows you how to set up the AvatarMod development environment so y
 Prerequisites
 -------------
 
-You need to install Git to work on avatar mod. Please see `the git website <https://git-scm.com>`_ to download it.
+You need Git to work on avatar mod. You should use git from the command line when installing, as that is
 
 Please have experience with Java and Git before trying to work on AvatarMod. A good knowledge of Forge is also recommended.
 
 Setting up
 ----------
 
-Clone the GitHub repository onto your computer:
+Clone the GitHub repository onto your computer using this command. It will create a folder called AvatarMod. You can pass a second argument to the command to change the location (or :code:`.` to specify the current folder).
 
 > $ git clone https://github.com/CrowsOfWar/AvatarMod.git
 
-Set up Gradle:
+The next instructions are specific to your IDE:
 
-> $ ./gradlew setupDecompWorkspace
+- `Eclipse <#eclipse>`_
+- `IntelliJ <#intellij>`_
 
-If you are running Eclipse, run this command:
+Eclipse
+-------
 
-> $ ./gradlew eclipse
+If you are running Eclipse, run this commands:
 
-If you are running IntelliJ, run this command:
+> $ ./gradlew setupDecompWorkspace eclipse
+
+Point Eclipse to the eclipse folder, and the MDKMinecraft project will show up on the package explorer.
+
+IntelliJ
+--------
+
+
+If you are running IntelliJ, 
 
 > $ ./gradlew idea
 
-Dependencies
+profile username n stuff
 ------------
 
 Todo
