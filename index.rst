@@ -9,6 +9,7 @@ Topics
 .. toctree::
    :maxdepth: 2
 
+   setup
    code-standards
    classes-overview
    add-ability
