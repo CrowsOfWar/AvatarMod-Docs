@@ -29,17 +29,23 @@ If you are running Eclipse, run this commands:
 
 > $ ./gradlew setupDecompWorkspace eclipse
 
-Point Eclipse to the eclipse folder, and the MDKMinecraft project will show up on the package explorer.
+Point Eclipse to the eclipse folder, and the MDKMinecraft project will show up on the package explorer. Eclipse has been successfully set up!
 
 IntelliJ
 --------
 
+If you are running IntelliJ, you don't need to use the command line any more and can use IntelliJ's built-in Gradle integration. Start by importing the Gradle project. If you are in the Welcome screen, choose :code:`Import Project`; if you have a window open, choose :code:`File > New > Project From Existing Resources`.
 
-If you are running IntelliJ, 
+Navigate to the directory that you cloned the AvatarMod repo into, and then click on :code:`build.gradle`.
 
-> $ ./gradlew idea
+If the dialog says "Gradle location not specified", check "Use gradle wrapper task configuration". Then click OK. This may take a while, but the project will open.
 
-profile username n stuff
-------------
+When the project opens, in the Gradle projects view, find the tasks :code:`setupDecompWorkspace` and :code:`genIntellijRuns`. Run them both, and you should be good to go.
 
-Todo
+Run Configuration
+-----------------
+
+The last thing you may want to do is edit your run configurations as follows:
+
+- Add the program argument :code:`--username <username>`, which will make the development environment use a specific username every time you run Minecraft.
+- Change the location of your 
