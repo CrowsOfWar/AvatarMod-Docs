@@ -15,7 +15,8 @@ Setting up
 
 Clone the GitHub repository onto your computer using this command. It will create a folder called AvatarMod. You can pass a second argument to the command to change the location (or :code:`.` to specify the current folder).
 
-.. code-block:: $ git clone https://github.com/CrowsOfWar/AvatarMod.git
+.. code-block:: sh
+   git clone https://github.com/CrowsOfWar/AvatarMod.git
 
 The next instructions are specific to your IDE:
 
@@ -27,7 +28,8 @@ Eclipse
 
 If you are running Eclipse, run this commands:
 
-.. code-block:: $ ./gradlew setupDecompWorkspace eclipse
+.. code-block:: sh
+   ./gradlew setupDecompWorkspace eclipse
 
 Point Eclipse to the eclipse folder, and the MDKMinecraft project will show up on the package explorer. Eclipse has been successfully set up!
 
@@ -48,4 +50,4 @@ Run Configuration
 The last thing you may want to do is edit your run configurations as follows:
 
 - Add the program argument :code:`--username <username>`, which will make the development environment use a specific username every time you run Minecraft.
-- Change the location of your 
+- Change the location of your
