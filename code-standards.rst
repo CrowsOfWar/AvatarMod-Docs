@@ -3,6 +3,13 @@ Code standards
 
 Here are some guidelines you must follow to maintain a good codebase.
 
+Code formatting
+---------------
+
+Follow the `Google Java Style Guide <https://google.github.io/styleguide/javaguide.html>`_ with the following exceptions:
+
+- Static imports and wildcard imports are allowed
+
 General tips
 ------------
 
