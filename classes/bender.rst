@@ -12,7 +12,7 @@ Features that the Bender interface provides includes:
   - mobs have infinite water
 - Way to identify benders (see BenderInfo)
 
-A Bender object can be obtained for an entity by calling :code:`Bender#create(EntityLivingBase)`. Benders are to be used on both logical sides.
+A Bender object can be obtained for an entity by calling :code:`Bender#get(EntityLivingBase)`. Benders are to be used on both logical sides.
 
 Only some types of entities can be Benders. It will throw an exception if Bender is not supported for that type of entity.
 

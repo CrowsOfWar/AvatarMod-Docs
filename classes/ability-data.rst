@@ -18,16 +18,18 @@ Check if an ability is unlocked
 
 .. code-block:: java
 
-   BendingData data = Bender.getData(player);
-   AbilityData abilityData = data.getAbilityData(ability);
+   EntityPlayer player = /* ... */;
+   UUID abilityId = /* ... */;
+   AbilityData abilityData = AbilityData.get(player, abilityId);
    boolean unlocked = !abilityData.isLocked();
 
 Add 10% XP. Won't advance to the next level.
 
 .. code-block:: java
 
-   BendingData data = Bender.getData(player);
-   AbilityData abilityData = data.getAbilityData(ability);
+   BendingData data = /* ... */;
+   Ability ability = /* ... */;
+   AbilityData abilityData = data.getAbilityData(ability.getId());
 
    // Don't use addXp since the number would be adjusted for XP decay
    abilityData.addXpDirect(10);
