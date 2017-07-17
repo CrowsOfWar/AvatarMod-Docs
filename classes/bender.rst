@@ -35,6 +35,12 @@ The :code:`Bender` interface describes a Bender which is present in the world, b
 
 BenderInfo allows you to identify Benders (either players or mobs) by using their UUID. It can be used both on the server and client.
 
+Internally, BenderInfo uses several subclasses to simplify implementation. Therefore, you cannot instantiate a BenderInfo directly. There are several ways to get a BenderInfo object:
+- :code:`Bender#getInfo()` - get BenderInfo about a particular bender
+- :code:`BenderInfo#get(EntityLivingBase entity)`  - get BenderInfo for a particular entity, provided that it is a Bender
+- :code:`BenderInfo#readFromBytes(ByteBuf) or BenderInfo#readFromNbt(NBTTagCompound)` - read BenderInfo from disk or network. There are also writing methods that you can call once you have a BenderInfo instance.
+- :code:`BenderInfo#get(boolean player, UUID id)` - get BenderInfo using your own parameters. This isn't recommended as there are simpler ways to do it (see above)
+
 - BenderInfo finds the Bender by iterating through the world's loaded entities, and creating a new bender object off of that player
 - In the case of players, uses `account's UUID <account-uuids.html>`_
 - In the case of mobs, uses its randomly generated UUID
