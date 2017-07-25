@@ -1,7 +1,7 @@
 Vector
 ======
 
-A :code:`Vector` object represents a mutable, three-dimensional mathematical vector. Vectors can represent many things, such as velocity or position.
+A :code:`Vector` object represents an immutable, three-dimensional mathematical vector. Vectors can represent many things, such as velocity or position.
 
 .. warning:: This refers to the class :code:`com.crowsofwar.gorecore.util.Vector` class, not in any related openGL or JOML packages
 
@@ -10,9 +10,21 @@ Basic Usage
 
 Vectors can be created using the appropriate constructor, such as :code:`new Vector(x, y, z)`. Their coordinates can be retrieved via the :code:`x()`, :code:`y()`, and :code:`z()` methods.
 
-To perform basic operations on vectors, such as addition, there are usually two different methods. The first one modifies the original vector, while the second creates a new vector. For example, for addition there are the :code:`add` and :code:`plus` methods.
+Vectors have many different methods to perform basic computations. As a vector is immutable, these methods create a new vector based on the old one and the parameters. Methods use the `fluid interfaces <https://en.wikipedia.org/wiki/Fluent_interface#Java>`_ naming convention. For example, addition is performed via the :code:`plus` method.
 
-You can also perform more complex operations like dot and cross product.
+Method chaining is encouraged. Consider the following code:
+
+.. code-block:: java
+   Vector motion = /* ... */;
+   motion = motion.times(2);
+   motion = motion.plusY(1);
+   motion = motion.times(-1);
+
+The same could be accomplished much more concisely via method chaining:
+
+.. code-block:: java
+   Vector motion = /* ... */;
+   motion = motion.times(2).plusY(1).times(-1);
 
 Trigonometry
 ------------
@@ -34,6 +46,7 @@ Minecraft integration
 Vectors were designed to be used in a Minecraft environment, so there are some methods which allow convenient usage of Vectors with entities.
 
 * To get an entity's position, use :code:`Vector#getEntityPos(entity)`. To get their eye position, use :code:`Vector#getEyePos(entity)`
+* To get an entity's motion, use :code:`Vector#getVelocity(entity)`. The velocity is in meters per second (20 ticks).
 * To get the direction in which an entity is looking in rectangular coordinates, use :code:`Vector#getLookRectangular(entity)`
 * To convert to a BlockPos, use :code:`Vector#toBlockPos()`
 * To find the direction to lob a projectile, use :code:`Vector#getProjectileAngle(velocity, gravity, horizontalDist, verticalDist)`
