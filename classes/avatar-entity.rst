@@ -1,5 +1,5 @@
 Avatar Entities
----------------
+===============
 
 Many `abilities <ability.html>`_ create an entity as part of the move; for example, the fireball ability creates a fireball entity that's manipulated by the bender. All entities from abilities derive from the :code:`AvatarEntity` class. Keep in mind AvatarEntity is _only_ for ability related entities; mobs extend from other classes like :code:`EntityAnimal`.
 
@@ -34,6 +34,19 @@ There are several lookup methods for AvatarEntities. They only return a single e
 Hooks
 -----
 
-AvatarEntities have many publicly callable hook methods. One example is the method :code:`onLargeWaterContact`, which should be called when the entity touches a large source of water. These hooks are available not only for convenience and conciseness, but also to promote interactions between different objects. Imagine a fire arc hits a water bubble. The water bubble calls :code:`onLargeWaterContact` on the fire arc, causing the fire to be extinguished. Hooks make interactions like this simple to implement without needing lots of special cases.
+AvatarEntities have many publicly callable hook methods. One example is the method :code:`onLargeWaterContact()`, which should be called when the entity touches a large source of water. These hooks are available not only for convenience and conciseness, but also to promote interactions between different objects. Imagine a fire arc hits a water bubble. The water bubble calls :code:`onLargeWaterContact()` on the fire arc, causing the fire to be extinguished. Hooks make interactions like this simple to implement without needing lots of special cases.
 
 For a list of hooks available to AvatarEntities, see the javadocs.
+
+Collisions
+----------
+
+AvatarEntities that wish to handle collisions should do so in the :code:`onCollidieWithEntity` method.
+
+Common operations
+-----------------
+
+There are many operations that multiple AvatarEntities need to perform. These often are relatively simple yet involve a significant amount of code; for example breaking a block also involves dropping items, playing sounds, and creating particles. Several protected methods are available to simplify these operations:
+
+- :code:`breakBlock(pos)` - break a block at the specified BlockPos
+- :code:`spawnExtinguishIndicators()` - plays effects to indicate something is extinguished
