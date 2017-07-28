@@ -22,3 +22,10 @@ AvId
 ----
 
 Also unlike vanilla Entities, you can send references to an AvatarEntity over network. Vanilla entity Ids aren't synchronized between server and client, so they can't be used to synchronize entities. AvatarEntities have their own, synchronized Id which is called the AvId. It can be used by calling :code:`getAvId()`. AvatarEntities can also be looked up by Id through the method :code:`AvatarEntity.lookupEntity(world, id)`.
+
+Hooks
+-----
+
+AvatarEntities have many publicly callable hook methods. One example is the method :code:`onLargeWaterContact`, which should be called when the entity touches a large source of water. These hooks are available not only for convenience and conciseness, but also to promote interactions between different objects. Imagine a fire arc hits a water bubble. The water bubble calls :code:`onLargeWaterContact` on the fire arc, causing the fire to be extinguished. Hooks make interactions like this simple to implement without needing lots of special cases.
+
+For a list of hooks available to AvatarEntities, see the javadocs.
