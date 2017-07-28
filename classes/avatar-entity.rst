@@ -1,9 +1,9 @@
 Using Avatar Entities
 =====================
 
-Many `abilities <ability.html>`_ create an entity as part of the move; for example, the fireball ability creates a fireball entity that's manipulated by the bender. All entities from abilities derive from the :code:`AvatarEntity` class. Keep in mind AvatarEntity is _only_ for ability related entities; mobs extend from other classes like :code:`EntityAnimal`.
+Many `abilities <ability.html>`_ create an entity as part of the move; for example, the fireball ability creates a fireball entity that's manipulated by the bender. All entities from abilities derive from the :code:`AvatarEntity` class. Keep in mind AvatarEntity is *only* for ability related entities; mobs extend from other classes like :code:`EntityAnimal`.
 
-AvatarEntities all have an owner, which refers to who created the entity (using bending). Under normal conditions, the owner should always be set. They also sometimes have a _controller_, which refers to who currently controls the movement of the entity. Sometimes nobody is manipulating the entity's movement, so the controller may not be set.
+AvatarEntities all have an owner, which refers to who created the entity (using bending). Under normal conditions, the owner should always be set. They also sometimes have a *controller*, which refers to who currently controls the movement of the entity. Sometimes nobody is manipulating the entity's movement, so the controller may not be set.
 
 Nullability
 -----------
@@ -44,6 +44,7 @@ Cookbook
 Look up an AvatarEntity based on an id
 
 .. code-block:: java
+
    int avId = /* ... */;
    World world = /* ... */;
 
@@ -52,6 +53,7 @@ Look up an AvatarEntity based on an id
 Send the AvatarEntity flying towards their owner
 
 .. code-block:: java
+
    AvatarEntity avEnt = /* ... */;
 
    EntityLivingBase owner = avEnt.getOwner();
@@ -89,6 +91,7 @@ Cookbook
 Extinguish when hit water
 
 .. code-block:: java
+
    @Override
    public boolean onLargeWaterContact() {
      spawnExtinguishIndicators();

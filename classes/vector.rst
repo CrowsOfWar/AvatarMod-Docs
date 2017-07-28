@@ -15,6 +15,7 @@ Vectors have many different methods to perform basic computations. As a vector i
 Method chaining is encouraged. Consider the following code:
 
 .. code-block:: java
+
    Vector motion = /* ... */;
    motion = motion.times(2);
    motion = motion.plusY(1);
@@ -23,6 +24,7 @@ Method chaining is encouraged. Consider the following code:
 The same could be accomplished much more concisely via method chaining:
 
 .. code-block:: java
+
    Vector motion = /* ... */;
    motion = motion.times(2).plusY(1).times(-1);
 
