@@ -18,10 +18,18 @@ Unlike vanilla Entities, AvatarEntities integrate better with `avatarmod vectors
 - Use :code:`position()` and :code:`setPosition(vec)` to manipulate the entity's position
 - Use :code:`velocity()` and :code:`setVelocity(vec)` to manipulate the entity's velocity. Velocity is in meters per second.
 
-AvId
-----
+AvId and Lookup
+---------------
 
-Also unlike vanilla Entities, you can send references to an AvatarEntity over network. Vanilla entity Ids aren't synchronized between server and client, so they can't be used to synchronize entities. AvatarEntities have their own, synchronized Id which is called the AvId. It can be used by calling :code:`getAvId()`. AvatarEntities can also be looked up by Id through the method :code:`AvatarEntity.lookupEntity(world, id)`.
+Also unlike vanilla Entities, you can send references to an AvatarEntity over network. Vanilla entity Ids aren't synchronized between server and client, so they can't be used to synchronize entities. AvatarEntities have their own, synchronized Id which is called the AvId. The AvId is synchronized, so it can be used to send references across server and client.
+
+If an entity needs to reference another entity, it's easier to use `SyncedEntity <syncedentity.html>`_ instead.
+
+There are several lookup methods for AvatarEntities. They only return a single entity:
+
+- :code:`lookupEntity(world, id)` - look up based on AvId
+- :code:`lookupEntity(world, cls, predicate)` - look up based on a type, and filter entities out
+- :code:`lookupControlledEntity(world, cls, controller)` - look up an entity which is controlled by the given entity
 
 Hooks
 -----
