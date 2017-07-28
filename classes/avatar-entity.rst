@@ -1,5 +1,5 @@
-Avatar Entities
-===============
+Using Avatar Entities
+=====================
 
 Many `abilities <ability.html>`_ create an entity as part of the move; for example, the fireball ability creates a fireball entity that's manipulated by the bender. All entities from abilities derive from the :code:`AvatarEntity` class. Keep in mind AvatarEntity is _only_ for ability related entities; mobs extend from other classes like :code:`EntityAnimal`.
 
@@ -36,7 +36,39 @@ Hooks
 
 AvatarEntities have many publicly callable hook methods. One example is the method :code:`onLargeWaterContact()`, which should be called when the entity touches a large source of water. These hooks are available not only for convenience and conciseness, but also to promote interactions between different objects. Imagine a fire arc hits a water bubble. The water bubble calls :code:`onLargeWaterContact()` on the fire arc, causing the fire to be extinguished. Hooks make interactions like this simple to implement without needing lots of special cases.
 
-For a list of hooks available to AvatarEntities, see the javadocs.
+Hooks return :code:`true` if the AvatarEntity was destroyed by the interaction (you don't need to call setDead). For a list of hooks available to AvatarEntities, see the javadocs.  You should call these hooks wherever appropriate.
+
+Cookbook
+--------
+
+Look up an AvatarEntity based on an id
+
+.. code-block:: java
+   int avId = /* ... */;
+   World world = /* ... */;
+
+   AvatarEntity avEnt = AvatarEntity.lookupEntity(world, avId);
+
+Send the AvatarEntity flying towards their owner
+
+.. code-block:: java
+   AvatarEntity avEnt = /* ... */;
+
+   EntityLivingBase owner = avEnt.getOwner();
+   if (player != null) {
+     Vector ownerPos = Vector.getEntityPos(owner);
+     Vector avEntPos = avEnt.position(); // can also use Vector.getEntityPos
+     Vector direction = avEntPos.minus(ownerPos);
+
+     Vector velocity = direction.normalize().times(10); // 10 m/s
+     avEnt.addVelocity(velocity);
+   }
+
+
+Creating Avatar Entities
+========================
+
+The below information only is useful if you are editing a class extending AvatarEntity.
 
 Collisions
 ----------
@@ -50,3 +82,16 @@ There are many operations that multiple AvatarEntities need to perform. These of
 
 - :code:`breakBlock(pos)` - break a block at the specified BlockPos
 - :code:`spawnExtinguishIndicators()` - plays effects to indicate something is extinguished
+
+Cookbook
+--------
+
+Extinguish when hit water
+
+.. code-block:: java
+   @Override
+   public boolean onLargeWaterContact() {
+     spawnExtinguishIndicators();
+     setDead();
+     return true;
+   }
