@@ -3,12 +3,12 @@ Using Avatar Entities
 
 Many `abilities <ability.html>`_ create an entity as part of the move; for example, the fireball ability creates a fireball entity that's manipulated by the bender. All entities from abilities derive from the :code:`AvatarEntity` class. Keep in mind AvatarEntity is *only* for ability related entities; mobs extend from other classes like :code:`EntityAnimal`.
 
-AvatarEntities all have an owner, which refers to who created the entity (using bending). Under normal conditions, the owner should always be set. They also sometimes have a *controller*, which refers to who currently controls the movement of the entity. Sometimes nobody is manipulating the entity's movement, so the controller may not be set.
+AvatarEntities all have an owner, which refers to who created the entity (using bending). Under normal conditions, the owner should always be set (though don't count on this). They also sometimes have a *controller*, which refers to who currently controls the movement of the entity. Sometimes nobody is manipulating the entity's movement, so the controller may not be set.
 
 Nullability
 -----------
 
-Keep in mind that although the owner or controller of an AvatarEntity might be set, they may not be logged in right now so an attempt to get the entity instance will return null.
+Keep in mind that although the owner or controller of an AvatarEntity might be set, they may not be logged in, so an attempt to get the entity instance can return null.
 
 Vectors
 -------
@@ -17,6 +17,8 @@ Unlike vanilla Entities, AvatarEntities integrate better with `avatarmod vectors
 
 - Use :code:`position()` and :code:`setPosition(vec)` to manipulate the entity's position
 - Use :code:`velocity()` and :code:`setVelocity(vec)` to manipulate the entity's velocity. Velocity is in meters per second.
+
+.. warning:: Don't use the vanilla method :code:`getPosition()` - this returns the :code:`BlockPos` at the entity's current position.
 
 AvId and Lookup
 ---------------
@@ -36,7 +38,7 @@ Hooks
 
 AvatarEntities have many publicly callable hook methods. One example is the method :code:`onLargeWaterContact()`, which should be called when the entity touches a large source of water. These hooks are available not only for convenience and conciseness, but also to promote interactions between different objects. Imagine a fire arc hits a water bubble. The water bubble calls :code:`onLargeWaterContact()` on the fire arc, causing the fire to be extinguished. Hooks make interactions like this simple to implement without needing lots of special cases.
 
-Hooks return :code:`true` if the AvatarEntity was destroyed by the interaction (you don't need to call setDead). For a list of hooks available to AvatarEntities, see the javadocs.  You should call these hooks wherever appropriate.
+Hooks return :code:`true` if the AvatarEntity was destroyed by the interaction (the AvatarEntity is responsible for calling :code:`setDead()` on itself). For a list of hooks available to AvatarEntities, see the javadocs.  You should call these hooks wherever appropriate.
 
 Cookbook
 --------
@@ -57,7 +59,7 @@ Send the AvatarEntity flying towards their owner
    AvatarEntity avEnt = /* ... */;
 
    EntityLivingBase owner = avEnt.getOwner();
-   if (player != null) {
+   if (owner != null) {
      Vector ownerPos = Vector.getEntityPos(owner);
      Vector avEntPos = avEnt.position(); // can also use Vector.getEntityPos
      Vector direction = avEntPos.minus(ownerPos);
