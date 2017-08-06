@@ -60,6 +60,34 @@ Here are links to detailed docs on each class used:
 Improving the implementation
 ----------------------------
 
+Although the ability works, there still a lot of missing functionality. The 
+ability doesn't have use experience or levels, so there is no progression. 
+Adding this is rather simple.
+
+Knowledge of the `ability data class <../classes/ability-data.html>`_ is 
+necessary. An instance of ability data can be obtained through 
+:code:`AbilityContext#getAbilityData()`. Just a few method calls to 
+adjust the ability numbers can be sufficent:
+
+.. code-block:: java
+   
+   @Override
+   public void execute(AbilityContext ctx) {
+     AbilityData abilityData = ctx.getAbilityData();
+     double range = 3 + abilityData.getLevel() * 0.5;
+     float fireSeconds = 2 + abilityData.getLevel();
+     
+     if (abilityData.isMasterPath(AbilityTreePath.FIRST)) {
+       range = 8;
+       fireSeconds = 3;
+     }
+     if (abilityData.isMasterPath(AbilityTreePath.SECOND)) {
+       range = 3;
+       fireSeconds = 7;
+     }
+     
+
+
 TODO; use Chi, award Xp, base on Level, support paths
 
 Localization
