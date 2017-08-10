@@ -62,7 +62,11 @@ Improving the implementation
 
 Although the ability works, there are still a lot of missing features common to other abilities. The ability doesn't require chi, so can be spammed continuously. It ignores experience and level 4 options, and therefore has no progression. Fortunately, adding these features are pretty simple.
 
-Knowledge of the `ability data class <../classes/ability-data.html>`_ is necessary. An instance of ability data can be obtained through :code:`AbilityContext#getAbilityData()`. Just a few method calls to adjust the ability numbers can be sufficent:
+Applying Xp cost is super easy. Just override the super method :code:`getChiCost()`
+and return the correct amount of chi. To require more chi under other conditions
+(such as air bubbles consuming chi each second), see :code:`Bender#consumeChi`.
+
+Adding experience only requires a few method calls, but knowledge of the `ability data class <../classes/ability-data.html>`_ is necessary. An instance of ability data can be obtained through :code:`AbilityContext#getAbilityData()`. Simply adjusting the numbers can be sufficent:
 
 .. code-block:: java
    
@@ -80,10 +84,11 @@ Knowledge of the `ability data class <../classes/ability-data.html>`_ is necessa
        range = 3;
        fireSeconds = 7;
      }
-     
 
+     // etc...
+   }
 
-TODO; use Chi, award Xp, base on Level, support paths
+To award Xp, just call :code:`abilityData.addXp` when appropriate.
 
 Localization
 ------------
