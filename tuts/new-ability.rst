@@ -108,10 +108,24 @@ For levels the following levels are used:
 - :code:`lvl4_1` - level IV, first path
 - :code:`lvl4_2` - level IV, second path
 
+Simply add the keys to en_US.lang, for example:
+
+.. code-block::
+   
+   avatar.ability.immolate.desc=You direct your fire to burn on organic material. Sets the targeted enemy on fire for a few moments.
+
 Icon
 ----
 
-TODO; add png to correct assets folder
+There are a few icons needed, one for radial menu, one for the skills menu card, and
+one for the skills menu background.
+
+For the radial menu icon, use a 256x256 image and name it :code:`icon_immolate.png`.
+Place it in the :code:`textures/radial` folder of the assets.
+
+For the skill menu card and skill menu background, don't bother because by the time
+someone else is reading this article, I'll have scrapped that approach as EduMC can't make
+skill menu pictures anymore.
 
 AI
 ---
