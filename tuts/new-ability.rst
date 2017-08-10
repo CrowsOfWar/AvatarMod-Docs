@@ -93,7 +93,20 @@ To award Xp, just call :code:`abilityData.addXp` when appropriate.
 Localization
 ------------
 
-TODO; add translation and desc for each upgrade
+For this ability, the following translations will be necessary:
+
+- Name of the ability: :code:`avatar.ability.immolate`
+- Description of the ability: :code:`avatar.ability.immolate.desc`
+- Description of each level upgrade:
+  :code:`avatar.ability.immolate.lvlX` (see below)
+
+For levels the following levels are used:
+
+- :code:`lvl1` - level I
+- :code:`lvl2` - level II
+- :code:`lvl3` - level III
+- :code:`lvl4_1` - level IV, first path
+- :code:`lvl4_2` - level IV, second path
 
 Icon
 ----
