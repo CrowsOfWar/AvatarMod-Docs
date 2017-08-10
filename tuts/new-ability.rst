@@ -130,4 +130,9 @@ skill menu pictures anymore.
 AI
 ---
 
-TODO
+The ability is almost all set up - functionality, UI, translations... The only thing
+left is an Ai module, which tells bending mobs how to use this ability (this part is
+optional if bending mobs shouldn't use the ability).
+
+For starters, override the method :code:`getAi`, and see the :code:`AiWaterArc` class
+for an example. Bending Ai is not covered in this tutorial; detailed documentation is available `here <../classes/bending-ai.html>`_.
