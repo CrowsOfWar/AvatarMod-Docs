@@ -1,23 +1,23 @@
 Tutorial: New Ability
 =====================
 
-This tutorial will show you how to add a new `ability <../classes/ability.html>`_ to the mod and attach it to a `bending style <../classes/bending-style.html>`_. The ability in this example will be a Firebending ability that lights the targeted mob on fire.
+This tutorial will show you how to add a new `ability <../classes/ability.html>`_ to the mod. The ability in this example will be a Firebending ability that lights the targeted mob on fire.
 
 Basic Setup
 -----------
 
-To make the new ability, extend the Ability class. You need to call the super constructor, which takes the name of the ability. Also the abstract method :code:`execute` needs to be implemented - leave it blank and fill it in later.
+To make the new ability, extend the Ability class. You need to call the super constructor, which takes the name of the ability as well as its bending controller. The name of the ability will be "immolate", and the name of the bending controller is "firebending".
+
+Also, the abstract methods :code:`execute` and :code:`getChiCost` need to be implemented - leave them blank and fill them in later.
 
 .. code-block:: java
    
    public class AbilityImmolate extends Ability
 
-You'll need to register the ability to the `ability registry <../classes/ability.html#registry>`_ so it's added to the game. You also need to `add it to the bending style <../classes/bending-style.html#registry>`_. This step is rather easy.
+Simply creating a class isn't enough, though - you'll need to register the ability to the `ability registry <../classes/ability.html#registry>`_ so it's added to the game. In :code:`AvatarMod#registerAbilities()`, call :code:`Abilities#register` with a new instance of your ability (abilities are singletons).
 
-In :code:`AvatarMod.registerAbilities()`, call :code:`Abilities.register` with a new instance of your ability. Then call :code:`BendingStyles.addAbility` to attach the ability to the bending style.
-
-.. note:: If you're developing an add-on, just call these methods in your main mod class's :code:`postInit` method.
-   If your main mod class doesn't have a postInit, just add one which has the method header :code:`@EventHandler public void postInit(FMLPostInitializationEvent e)`. FML will automatically call it, similar to how preInit is called.
+.. note:: If you're developing an add-on, call these methods in your main mod class's :code:`postInit` method.
+   If your main mod class doesn't have a postInit, just add one which has the method header :code:`@EventHandler public void postInit(FMLPostInitializationEvent e)`. FML will automatically call it, similar to how preInit is called. 
 
 The ability is now registered and visible in the Firebending radial menu.
 
