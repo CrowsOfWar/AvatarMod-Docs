@@ -60,14 +60,9 @@ Here are links to detailed docs on each class used:
 Improving the implementation
 ----------------------------
 
-Although the ability works, there still a lot of missing functionality. The 
-ability doesn't have use experience or levels, so there is no progression. 
-Adding this is rather simple.
+Although the ability works, there are still a lot of missing features common to other abilities. The ability doesn't require chi, so can be spammed continuously. It ignores experience and level 4 options, and therefore has no progression. Fortunately, adding these features are pretty simple.
 
-Knowledge of the `ability data class <../classes/ability-data.html>`_ is 
-necessary. An instance of ability data can be obtained through 
-:code:`AbilityContext#getAbilityData()`. Just a few method calls to 
-adjust the ability numbers can be sufficent:
+Knowledge of the `ability data class <../classes/ability-data.html>`_ is necessary. An instance of ability data can be obtained through :code:`AbilityContext#getAbilityData()`. Just a few method calls to adjust the ability numbers can be sufficent:
 
 .. code-block:: java
    
