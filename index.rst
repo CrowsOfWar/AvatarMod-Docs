@@ -19,3 +19,4 @@ Topics
    classes/vector
    classes/account-uuids
    classes/avatar-entity
+   classes/ability
