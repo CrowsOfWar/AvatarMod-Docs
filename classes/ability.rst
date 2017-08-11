@@ -3,7 +3,7 @@ Ability Class
 
 The :code:`Ability` class represents an ability that `benders <bender.html>`_ can use. Abilities are singletons; they don't contain any information specific to a particular bender (`AbilityData is used for this <ability-data.html>`_). :code:`Ability` instances are most important because they define the in-game ability's behavior.
 
-An instance of an ability can be obtained with :code:`Abilities.get(abilityName)`, and abilities are executed by calling :code:`Bender.executeAbility(abilityName)`. Avoid directly using an Ability instance unless you are sure that ability is installed (`explanation <#Offline>`_).
+An instance of an ability can be obtained with :code:`Abilities.get(abilityName)`, and abilities are executed by calling :code:`Bender.executeAbility(abilityName)`. Avoid directly using an Ability instance unless you are sure that ability is installed (see Offline section).
 
 Information common to all abilities include:
 
