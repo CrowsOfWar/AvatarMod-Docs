@@ -59,7 +59,7 @@ Examples:
 Cookbook
 --------
 
-(Note: there is `a tutorial <../tuts/new-ability>`_ for how to create new abilities)
+(Note: there is `a tutorial <../tuts/new-ability.html>`_ for how to create new abilities)
 
 Find out which bending style an ability belongs to
 
