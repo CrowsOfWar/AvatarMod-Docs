@@ -50,3 +50,44 @@ As you know, abilities should be referred to by their names as much as possible.
 For consistency, names should be all lowercase, with underscores separating different words. For example, an ability named Light Fire should have the name :code:`light_fire`.
 
 For add-ons, ability names should be namespaced to avoid naming conflicts. Follow vanilla Minecraft's ResourceLocation convention: the add-on name, followed by a colon, followed by the ability name. Ability names from the core AvatarMod need not follow this rule; they only contain the ability name (without :code:`avatarmod:`).
+
+Cookbook
+--------
+
+(Note: there is `a tutorial <../tuts/new-ability>`_ for how to create new abilities)
+
+Find out which bending style an ability belongs to
+
+.. code-block:: java
+   
+   String abilityName = /* ... */;
+
+   // Warning: ability can be null
+   Ability ability = Abilities.get(abilityName);
+   String bendingStyle = ability == null ? null : ability.getBendingStyle();
+
+Have the `bender <bender.html>`_ use the fire arc ability (note: for AI, `BendingAi <bending-ai.html>`_ should be used, which also teaches the bender *how* to use that ability)
+
+.. code-block:: java
+   
+   Bender bender = /* ... */;
+   String abilityName = /* ... */;
+   bender.executeAbility(abilityName);
+
+For an Ai mob - adds the ability Ai to the task list, which tells the mob how to use that ability
+
+.. code-block:: java
+   
+   @Override
+   protected void initEntityAI() {
+     int priority = /* ... */;
+     String abilityName = /* ... */;
+
+     BendingAi ai = Abilities.getAi(abilityName, this, this);
+     // or...  ai = Abilities.get(abilityName).getAi(this, this)
+     tasks.addTask(priority, ai);
+
+     // ... rest of mob ai ...
+   }
+
+
