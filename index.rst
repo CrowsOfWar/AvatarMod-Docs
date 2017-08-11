@@ -12,4 +12,5 @@ Topics
    setup
    code-standards
    classes-overview
-   sitemap
+   class-list
+   tutorial-list
