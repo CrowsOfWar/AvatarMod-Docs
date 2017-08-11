@@ -41,3 +41,12 @@ A comparison of this approach to Forge's approach: A similar situation happens w
 To account for ability instances possibly not being present, simply avoid using an actual instance of :code:`Ability` unless you are *sure* it is loaded. Otherwise, handle using the ability's name.
 
 **tl;dr** Opt for using ability's name instead of ability instance whenever possible
+
+Naming
+------
+
+As you know, abilities should be referred to by their names as much as possible. Although there aren't any strict rules in place, ability names should follow several conventions.
+
+For consistency, names should be all lowercase, with underscores separating different words. For example, an ability named Light Fire should have the name :code:`light_fire`.
+
+For add-ons, ability names should be namespaced to avoid naming conflicts. Follow vanilla Minecraft's ResourceLocation convention: the add-on name, followed by a colon, followed by the ability name. Ability names from the core AvatarMod need not follow this rule; they only contain the ability name (without :code:`avatarmod:`).
