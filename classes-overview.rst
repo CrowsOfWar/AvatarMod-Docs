@@ -3,6 +3,10 @@ Classes overview
 
 This page explains the most important classes and interfaces used in AvatarMod that are necessary for basic understanding of the code.
 
+.. note::
+   
+   There is a full list of all documented classes `here <class-list.html>`.
+
 Data classes
 ------------
 

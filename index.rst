@@ -12,11 +12,4 @@ Topics
    setup
    code-standards
    classes-overview
-   add-ability
-   add-bending
-   classes/bender
-   classes/ability-data
-   classes/vector
-   classes/account-uuids
-   classes/avatar-entity
-   classes/ability
+   sitemap
