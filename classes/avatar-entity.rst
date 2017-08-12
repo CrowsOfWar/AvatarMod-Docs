@@ -1,4 +1,4 @@
-Using Avatar Entities
+Avatar Entities
 =====================
 
 Many `abilities <ability.html>`_ create an entity as part of the move; for example, the fireball ability creates a fireball entity that's manipulated by the bender. All entities from abilities derive from the :code:`AvatarEntity` class. Keep in mind AvatarEntity is *only* for ability related entities; mobs extend from other classes like :code:`EntityAnimal`.
@@ -69,34 +69,4 @@ Send the AvatarEntity flying towards their owner
    }
 
 
-Creating Avatar Entities
-========================
 
-The below information only is useful if you are editing a class extending AvatarEntity.
-
-Collisions
-----------
-
-AvatarEntities that wish to handle collisions should do so in the :code:`onCollidieWithEntity` method.
-
-Common operations
------------------
-
-There are many operations that multiple AvatarEntities need to perform. These often are relatively simple yet involve a significant amount of code; for example breaking a block also involves dropping items, playing sounds, and creating particles. Several protected methods are available to simplify these operations:
-
-- :code:`breakBlock(pos)` - break a block at the specified BlockPos
-- :code:`spawnExtinguishIndicators()` - plays effects to indicate something is extinguished
-
-Cookbook
---------
-
-Extinguish when hit water
-
-.. code-block:: java
-
-   @Override
-   public boolean onLargeWaterContact() {
-     spawnExtinguishIndicators();
-     setDead();
-     return true;
-   }
