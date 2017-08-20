@@ -49,3 +49,23 @@ BendingStyles' main job is to keep track of a player's abilities.
 *`Abilities main article <../classes/ability.html>`_*
 
 The :code:`Ability` class represents an ability in-game. Its main purpose is to implement the :code:`execute` method, which causes a player to execute the ability.
+
+Vectors
+-------
+
+*Main article: `Vectors <../classes/vector.html>`_*
+
+Since Minecraft's :code:`Vec3d` is ugly and poorly documented, the custom :code:`Vector` class was created. This is a three-dimensional, immutable vector of doubles. Vectors are usually used for things like positioning, velocity, and rotations.
+
+You are expected to be at least somewhat familiar with mathematical vectors, so make sure you do `research <http://mathinsight.org/vector_introduction>`_ if necessary.
+
+Entities and Mobs
+-----------------
+
+*`AvatarEntities <../classes/avatar-entity.html>`_*
+
+There are generally three classifications of entities added by the mod:
+
+- Entities from Abilities (like :code:`EntityFireball`): `AvatarEntities <../classes/avatar-entity.html>`_. These are like a plain :code:`Entity`, but with  convenience/compatibility features like built-in ownership, better support for vectors, lookup methods, and hooks.
+- Entities that can bend (like :code:`EntityHumanBender`): They derive from :code:`EntityBender` which implements :code:`Bender` and has :code:`BendingData`.
+- Other entities (like :code:`EntityOstrichHorse`): Same as vanilla entities, they extend from regular vanilla classes and don't have any special APIs you need to learn.
