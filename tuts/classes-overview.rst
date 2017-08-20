@@ -37,16 +37,15 @@ Since a :code:`Bender` object represents an in world mob/player, usually access 
 
 To obtain an instance of a Bender for your entity, call the static method :code:`Bender.create(entity)`.
 
-Bending controllers
--------------------
+Bending Styles and Abilities
+----------------------------
 
-Bending controllers represent each style of bending; mainly all of the abilities but also miscellaneous information about them (such as name). All bending controllers are derived from the :code:`BendingController` class. The :code:`BendingManager` class also keeps instances and IDs for each bending controller.
+*`BendingStyles main article <../classes/bending-style.html>`_*
 
-Bending controllers are stored in :code:`BendingData`. They are found via ID. Each ID can be retrieved through the appropriate static fields in :code:`BendingManager`, or by calling :code:`controller.getId()`.
+BendingStyles represent each style of bending; mainly all of the abilities but also miscellaneous information about them (such as name). All bending controllers are derived from the :code:`BendingStyle` class. The :code:`BendingStyles` class also keeps instances and of each bending style.
 
-Abilities
----------
+BendingStyles' main job is to keep track of a player's abilities.
 
-The :code:`BendingAbility` class is the base for each ability. Obviously, the most important abstract method is :code:`execute(AbilityContext)`, where the code for the ability is executed. Instances of :code:`BendingAbility` are kept in static fields of the BendingAbility class itself. Their :code:`BendingController` objects also keep track of them.
+*`Abilities main article <../classes/ability.html>`_*
 
-Any logic in an ability (such as the :code:`execute` method) is only to be called on the server. Calling on client will result in issues like duplicate entities!
+The :code:`Ability` class represents an ability in-game. Its main purpose is to implement the :code:`execute` method, which causes a player to execute the ability.
