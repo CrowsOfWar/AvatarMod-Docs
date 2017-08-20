@@ -69,3 +69,14 @@ There are generally three classifications of entities added by the mod:
 - Entities from Abilities (like :code:`EntityFireball`): `AvatarEntities <../classes/avatar-entity.html>`_. These are like a plain :code:`Entity`, but with  convenience/compatibility features like built-in ownership, better support for vectors, lookup methods, and hooks.
 - Entities that can bend (like :code:`EntityHumanBender`): They derive from :code:`EntityBender` which implements :code:`Bender` and has :code:`BendingData`.
 - Other entities (like :code:`EntityOstrichHorse`): Same as vanilla entities, they extend from regular vanilla classes and don't have any special APIs you need to learn.
+
+Formatted Messages
+------------------
+
+*Main article: `FormattedMessage <../classes/formatted-message.html>`_*
+
+Warning: this is a WIP section!
+
+Messages should be handled in the :code:`FormattedMessage` class. This allows for formatting `in the translation file <../classes/formatted-message.html#translation-file>`_. For organizational purposes, all messages are kept in :code:`AvatarChatMessages`.
+
+Formatted Messages can be used in chat (by using :code:`FormattedMessage#send`) or can be used in GUIs with ( todo ).
