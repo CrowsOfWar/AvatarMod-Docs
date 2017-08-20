@@ -4,13 +4,18 @@ Classes overview
 This page explains the most important classes and interfaces used in AvatarMod that are necessary for basic understanding of the code.
 
 .. note::
-   
-   There is a full list of all documented classes `here <class-list.html>`.
 
-Data classes
+   There is a full list of all documented classes `here <class-list.html>`_.
+
+Bending data
 ------------
 
-There needs to be a place to store information about players' bending, progress, and other information. It also must be compatible with mobs and other entities, so data is tied to a :code:`Bender` (more information below). The :code:`BendingData` interface provides the framework for such data. To maintain offline support, it is detached from the entity so you can access offline players' data.
+*Main article: `BendingData <../classes/bending-data.html>`_*
+
+There needs to be a place to store information about players' bending, progress, and other information. It also must be compatible with mobs and other entities, so data is tied to a :code:`Bender` (more information below). The :code:`BendingData` class provides the framework for such data. To maintain offline support, it is detached from the entity so you can access offline players' data.
+
+Bender
+------
 
 Data and logic needs to not only apply to players, but also to mobs and other things. For example, abilities are compatible with both players and firebender mobs. For this to happen, there needs to be an abstraction. The :code:`Bender` interface detaches logic from traditional :code:`EntityPlayer` oriented code. Benders can represent mobs, players, or whatever else the implementer wishes. There are different implementations of this interface for players and mobs. (`main article <classes/bender.html>`_)
 
