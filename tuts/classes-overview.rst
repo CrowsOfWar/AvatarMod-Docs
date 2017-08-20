@@ -14,16 +14,28 @@ Bending data
 
 There needs to be a place to store information about players' bending, progress, and other information. It also must be compatible with mobs and other entities, so data is tied to a :code:`Bender` (more information below). The :code:`BendingData` class provides the framework for such data. To maintain offline support, it is detached from the entity so you can access offline players' data.
 
+Data is fully synchronized across server and client. Whenever data is changed, a packet is sent to the client containing the new data, so you won't have to worry about manually synchronizing data.
+
+BendingData can be obtained by using :code:`BendingData#get(EntityLivingBase)`. It is also obtained by using :code:`Bender#getData()` (see below).
+
+Code example which toggles whether bison follow the player:
+
+.. code-block:: java
+
+   EntityPlayer player = /* ... */;
+   BendingData data = BendingData.get(player);
+   data.setBisonFollowMode(!data.getBisonFollowMode());
+
 Bender
 ------
+
+*Main article: `Bender <../classes/bender.html>`_*
 
 Data and logic needs to not only apply to players, but also to mobs and other things. For example, abilities are compatible with both players and firebender mobs. For this to happen, there needs to be an abstraction. The :code:`Bender` interface detaches logic from traditional :code:`EntityPlayer` oriented code. Benders can represent mobs, players, or whatever else the implementer wishes. There are different implementations of this interface for players and mobs. (`main article <classes/bender.html>`_)
 
 Since a :code:`Bender` object represents an in world mob/player, usually access to an :code:`Entity` is required to get position, motion, and other data. :code:`Bender` objects must provide an :code:`EntityLivingBase` which represents the entity version of the Bender. A player bender would provide an instance of :code:`EntityPlayer`, while a firebender would provide an instance of :code:`EntityFirender`. To maintain offline support, :code:`Bender#getEntity()` can return null if the Bender is not currently in the world. This usually happens when there is a command being used about an offline player.
 
-To obtain an instance of a Bender for your entity, call the static method :code:`Bender.create(entity)`. To obtain an instance of data, call :code:`Bender.create(entity).getData()`, or, more conveniently, :code:`Bender.getData(entity)`.
-
-Data is fully synchronized across server and client. Whenever data is changed, a packet is sent to the client containing the new data, so you won't have to worry about manually synchronizing data.
+To obtain an instance of a Bender for your entity, call the static method :code:`Bender.create(entity)`.
 
 Bending controllers
 -------------------
