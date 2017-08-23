@@ -54,7 +54,9 @@ Tick Handlers
 
 Data can have multiple `tick handlers <tick-handler.html>`. As their name implies, a tick handler is an object which recieves updates every tick. Any tick handler in the BendingData will recieve updates if the Bender is online.
 
-The only tick handler method you will probably be using is :code:`addTickHandler(TickHandler)`, which activates the tick handler.
+The method :code:`addTickHandler(TickHandler)` activates the tick handler. An instance of a tick handler is found from a public static variable instance in the :code:`TickHandler` class.
+
+BendingData keeps track of how long a TickHandler was used for. This can be accessed using :code:`getTickHandlerDuration(TickHandler)`, which represents the time in ticks. The time isn't synchronized between the server and client, and isn't saved to disk, so avoid using this timer for anything other than quick, short-term delays.
 
 Miscellaneous 
 -------------
