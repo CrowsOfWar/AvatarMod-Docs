@@ -22,5 +22,19 @@ The first lines of commit messages should be worded imperatively. This means ins
 
 These messages make it easy to tell what's going on.
 
+Sometimes, if the reason for the change is not immediately obvious, additional explanation is needed. This should be added in the description part of the commit message. The description should be added after two line breaks of the first line.
+
+A good example of a commit description is:
+
+.. code-block::
+   
+   Fix duplicate scanning of same BlockPos in FloodFill
+   
+   BlockPos was only added to processedBlocks after processed,
+   which meant pos added to queue were still added
+   again
+
+From reading the commit message, it might not be immediately obvious why there was a duplicate scanning issue, which was cleared up by the commit description.
+
 Branch naming
 -------------
