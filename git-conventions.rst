@@ -28,7 +28,7 @@ Sometimes, if the reason for the change is not immediately obvious, additional e
 
 A good example of a commit description is:
 
-.. code-block::
+.. code::
    
    Fix duplicate scanning of same BlockPos in FloodFill
    
