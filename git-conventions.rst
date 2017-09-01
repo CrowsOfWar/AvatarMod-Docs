@@ -50,3 +50,16 @@ For version branches, the branch name should simply be the version name (e.g., "
 - fix-water-arc-crash (branch for crash hotfix; branches don't need to explain things in detail)
 
 Some smaller branches (like hotfixes or features) will realistically only be used by one person. In these branches, it is more acceptable to rebase or otherwise force push as nobody else cares. To denote one of these "personal" branches, use syntax :code:`username/branch-name`. For :code:`username`, type in your username (but it can be abbreviated if necessary); and for :code:`branch-name`, use standard branch naming conventions as described above.
+
+General tips
+------------
+
+These tips don't directly apply to conventions, but they can be useful for using Git more efficiently.
+
+- On personal branches (see above), if the parent branch has progressed, use :code:`git rebase` to avoid merge conflicts. Using :code:`git merge` or :code:`git pull` can cause many merge commits which make the repository history less readable. More information `here <https://stackoverflow.com/questions/16358418/how-to-avoid-merge-commit-hell-on-github-bitbucket>`_.
+
+- Merge conflicts can require a lot of knowledege about what's going on, so feel free to ask another team member if you are confused by a merge conflict.
+
+- While introducing a new system in the code, make sure you document it in the AvatarMod-Docs repository (ie, this website!).
+
+- Pull requests aren't always necessary, but if you think the change requires some discussion it's probably a good idea.
