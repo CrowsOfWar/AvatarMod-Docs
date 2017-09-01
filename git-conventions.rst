@@ -48,3 +48,5 @@ For version branches, the branch name should simply be the version name (e.g., "
 - a5.0 (for the version branch for alpha 5.0)
 - config-balancing (branch for adjusting default configuration values)
 - fix-water-arc-crash (branch for crash hotfix; branches don't need to explain things in detail)
+
+Some smaller branches (like hotfixes or features) will realistically only be used by one person. In these branches, it is more acceptable to rebase or otherwise force push as nobody else cares. To denote one of these "personal" branches, use syntax :code:`username/branch-name`. For :code:`username`, type in your username (but it can be abbreviated if necessary); and for :code:`branch-name`, use standard branch naming conventions as described above.
