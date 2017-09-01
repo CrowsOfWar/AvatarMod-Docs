@@ -40,3 +40,11 @@ From reading the commit message, it might not be immediately obvious why there w
 
 Branch naming
 -------------
+
+The purpose of a branch name is to convey the feature, hotfix, or version in question in a concise and standardized manner.
+
+For version branches, the branch name should simply be the version name (e.g., "a5.0"). For other branches, name the branch after the feature or fix in question. Words in branch names should be lowercase and separated with hypens. Examples:
+
+- a5.0 (for the version branch for alpha 5.0)
+- config-balancing (branch for adjusting default configuration values)
+- fix-water-arc-crash (branch for crash hotfix; branches don't need to explain things in detail)
