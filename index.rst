@@ -11,6 +11,7 @@ Topics
 
    setup
    code-standards
+   git-conventions
    classes-overview
    class-list
    tutorial-list
