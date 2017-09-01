@@ -32,9 +32,10 @@ A good example of a commit description is:
    
    Fix duplicate scanning of same BlockPos in FloodFill
    
-   BlockPos was only added to processedBlocks after processed,
-   which meant pos added to queue were still added
-   again
+   Position was only added to processedBlocks after it was
+   processed, but not when added to the queue. It was possible
+   for position to be added to the queue multiple times, causing
+   duplicate scans of the same position.
 
 From reading the commit message, it might not be immediately obvious why there was a duplicate scanning issue, which was cleared up by the commit description.
 
