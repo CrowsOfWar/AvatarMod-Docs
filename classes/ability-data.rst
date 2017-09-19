@@ -32,6 +32,13 @@ Check if an ability is unlocked
    AbilityData abilityData = AbilityData.get(player, abilityId);
    boolean unlocked = !abilityData.isLocked();
 
+Airblade's *pierce armor* is the second level IV upgrade. Checks if the player has the Pierce Armor upgrade - the player is at level IV, and the player chose the second upgrade path.
+
+.. code-block:: java
+   
+   AbilityData abilityData = /* see above for info */;
+   boolean pierceArmor = abilityData.isMasterPath(AbilityTreePath.SECOND); 
+
 Add 10% XP. Won't advance to the next level.
 
 .. code-block:: java
