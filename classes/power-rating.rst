@@ -16,3 +16,14 @@ Modifiers usually only exist for a short amount of time. Their :code:`onUpdate` 
 
 Modifiers are not singletons; a new instance of a modifier subclass is created every time that modifier should be applied.
 
+Manager
+-------
+
+The manager is responsible for actually calculating the power rating. This class keeps a track of the active modifiers, and removes them when they request it (in their onUpdate method).
+
+To calculate the power rating at any given moment, it simply finds the sum of all the active modifiers' values. This means every time getRating is called, all modifiers' :code:`get` methods are called to find their individual modifier values. Although this seems computation heavy, it realistically isn't that bad, and caching would be difficult since the situation can change at any given moment. 
+
+One manager exists for each type of bending; this allows a single player to have separate power ratings for separate elements. For example, even if you added a FirebendingSunModifier to Firebending, that modifier wouldn't affect the power rating for Waterbending.
+
+A manager can be obtained by calling :code:`BendingData#getPowerRatingManager`.
+
