@@ -27,3 +27,35 @@ One manager exists for each type of bending; this allows a single player to have
 
 A manager can be obtained by calling :code:`BendingData#getPowerRatingManager`.
 
+Cookbook
+--------
+
+Get the power rating for a given bending style -- avoid directly using the Manager to calculate it, instead rely on the available Bender instance.
+
+.. code-block:: java
+   
+   BendingStyle style = /* ... */;
+   Bender bender = /* ... */;
+   
+   double powerRating = bender.calcPowerRating(style.getId());
+
+Example of a power rating modifier which provides -5 rating during the day, and +5 rating during the night
+
+.. code-block:: java
+   
+   public class MyModifier extends PowerRatingModifier {
+     @Override
+     public double get(BendingContext ctx) {
+        boolean daytime = ctx.getWorld().isDaytime();
+        return daytime ? -5 : 5;
+     }
+   }
+
+Apply the power rating modifier described above (MyModifier)
+
+.. code-block:: java
+   
+   BendingData data = /* ... */;
+   BendingStyle style = /* ... */;
+   
+   data.getBendingManager(style).addModifier(new MyModifier());
