@@ -18,7 +18,7 @@ Setting up
 Clone the GitHub repository onto your computer using this command. It will create a folder called AvatarMod.
 .. code-block:: sh
    
-   git clone https://github.com/CrowsOfWar/AvatarMod.git
+   git clone https://github.com/ProjectKorra/AvatarMod.git
 
 The next instructions are specific to your IDE:
 
